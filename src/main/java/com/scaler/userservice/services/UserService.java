@@ -4,6 +4,7 @@ import com.scaler.userservice.models.Token;
 import com.scaler.userservice.models.User;
 import com.scaler.userservice.repositories.TokenRepository;
 import com.scaler.userservice.repositories.UserRepository;
+import jakarta.transaction.Transactional;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -75,7 +76,7 @@ public class UserService  {
         return token;
     }
 
-
+    @Transactional
     public void logout(String token){
 /*  so instead of deleting the token completely, we can SoftDelete it.
     i.e., we don't delete the data instead we just set isDeleted column as TRUE.(History still exists) */
@@ -88,6 +89,18 @@ public class UserService  {
         tkn.setDeleted(true);
         tokenRepository.save(tkn);
         return;
+    }
+
+    //if token(input) is null it should be validated by controller or ude @NotNull in controller method
+    public User validateToken(String token) {
+        Optional<Token> tkn = tokenRepository.
+                findByValueAndDeletedEqualsAndExpiryAtGreaterThan(token, false, new Date());
+
+        if (tkn.isEmpty()) {
+            return null;
+        }
+
+        return tkn.get().getUser();
     }
 }
 

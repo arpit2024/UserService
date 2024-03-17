@@ -3,12 +3,14 @@ package com.scaler.userservice.controllers;
 import com.scaler.userservice.dtos.LoginRequestDto;
 import com.scaler.userservice.dtos.LogoutRequestDto;
 import com.scaler.userservice.dtos.SignUpRequestDto;
+import com.scaler.userservice.dtos.UserDto;
 import com.scaler.userservice.models.Token;
 import com.scaler.userservice.models.User;
 import com.scaler.userservice.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -50,6 +52,10 @@ public class UserController {
         userService.logout(request.getToken());
 
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @PostMapping("/validate/{token}")
+    public UserDto validateToken(@PathVariable("token") @NonNull String token) {
+        return UserDto.from(userService.validateToken(token));
     }
 }
 
