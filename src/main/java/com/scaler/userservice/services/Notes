@@ -1,0 +1,30 @@
+
+In UserService Class
+--------------------------------
+when i try to Autowire the BcryptPasswordEncoder to encode a password, i get the following error:
+public UserService(UserRepository userRepository,BCryptPasswordEncoder bCryptPasswordEncoder){
+        this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+its is giving error or not able to Autowire it,
+Q)what gets Autowire
+->if there is a particular object that is currently not getting autowired than how can we
+automatically
+wire it/How did we get RestTemplate present in every place
+->By using a configuration class and using @Bean annotation we can Autowire it
+
+
+Spring Security
+-----------------
+Q)What is Spring Security
+->Spring Security is a powerful and highly customizable authentication and access-control framework
+ Java applications
+
+when an APi request is done , i get 401 unauthorized error
+-> Spring security it automatically adds a restriction that only if a person is logged in will be
+able to access the API/call the controller method
+
+But for my SignUp API i cannot except a user to be logged in for the first time to call
+the SignUp API
+->So we need to disable the Spring Security for the SignUp API- so create a class called SecurityConfig
+

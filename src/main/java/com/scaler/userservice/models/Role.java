@@ -3,6 +3,7 @@ package com.scaler.userservice.models;
 import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Getter

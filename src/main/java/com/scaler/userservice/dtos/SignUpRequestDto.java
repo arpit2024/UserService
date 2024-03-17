@@ -10,3 +10,4 @@ public class SignUpRequestDto {
     private String password;
     private String name;
 }
+// Dto is used to get the data from the client and send the data to the client.
