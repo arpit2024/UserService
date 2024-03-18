@@ -1,5 +1,5 @@
-if a person has access to db he can thye can decode the password using bcrypt
-but they may have to check ony bu one every password and if we have good round of encryption
-then it will be very very slow in decodeing every password
+if a person has access to db he can then decode the password using bcrypt
+but they may have to check one by one every password and if we have good round of encryption
+then it will be very very slow in decoding every password
 
 In bcrypt we cannot decrypt the password we can only verify the password

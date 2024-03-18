@@ -22,14 +22,14 @@ use of Configuration class in Spring Boot?
 @Bean annotation in Spring Boot?
 ->@Bean annotation is used to define the beans that can be autowired at different places in the
  application.
-i.e object of BCryptPasswordEncoder() can be autowired at different places in the application
+i.e. object of BCryptPasswordEncoder() can be autowired at different places in the application
 
 Autowire
  means to inject the object dependency implicitly. It internally uses setter or constructor injection.
  It is better for loose coupling because no need to write the extra code to inject the dependency.
 
 
-if i have to clear custom beans that can autowire at different places i just create them in config class
+if i have to clear custom beans that can autowire at different places, i just create them in config class
 or
 when i want spring to be able to create one object of that class, store it in its Application context
 and be able to autowire it at different places in the application

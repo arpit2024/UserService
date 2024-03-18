@@ -18,6 +18,9 @@ public class UserDto {
     private boolean isEmailVerified;
 
     public static UserDto from(User user) {
+
+        //By using this if-loop we can handle the case when the user is null.(Bug Cleared)
+        //explained in Controller class-ValidateToken method
         if (user == null) return null;
 
         UserDto userDto = new UserDto();

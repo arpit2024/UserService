@@ -56,6 +56,9 @@ public class UserController {
     @PostMapping("/validate/{token}")
     public UserDto validateToken(@PathVariable("token") @NonNull String token) {
         return UserDto.from(userService.validateToken(token));
+    //So there is a bug in this code- userService.validateToken(token) can return a null
+    //check the code it says if token is not present in db return null so edit in USerDto
+
     }
 }
 

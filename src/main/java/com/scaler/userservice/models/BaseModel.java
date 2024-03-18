@@ -18,5 +18,5 @@ public class BaseModel {
     private Long id;
 
     private boolean deleted;
-//In java boolean is by default false
+//In java, boolean is by default false
 }

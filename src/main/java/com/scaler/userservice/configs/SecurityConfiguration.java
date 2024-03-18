@@ -20,7 +20,7 @@ public class SecurityConfiguration {
                             }
                         }
                 );
-        //Just allow all of the requests (Don't Block any request)
+        //Just allow all the requests (Don't Block any request)
         return http.build();
     }
 }
